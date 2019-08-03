@@ -1,0 +1,45 @@
+.timeline table {
+  position: static;
+  width: 5em;
+  border: 1px solid black;
+  margin: 0 auto;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+}
+
+.timeline .day {
+  transform: rotate(-90deg);
+  text-align: center;
+  font-weight: bold;
+  white-space: pre;
+  font-size: 0.5em;
+  color: black;
+}
+
+.timeline .todo {
+  text-align: left;
+  vertical-align: center;
+  line-height: 70%;
+  font-size: 0.5em;
+}
+
+.timeline td {
+  max-width: 4em;
+  height: 2em;
+}
+
+.timeline .dot {
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.timeline .today {
+    background-color: green;
+}
+
+.timeline .event {
+    background-color: red;
+}
