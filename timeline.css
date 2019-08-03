@@ -1,4 +1,4 @@
-.timeline table {
+.timeline #TimelineTable {
   position: static;
   width: 5em;
   border: 1px solid black;

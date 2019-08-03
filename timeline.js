@@ -10,6 +10,9 @@ Module.register("timeline", {
         animationSpeed: 2000, // Speed of the update animation (milliseconds)
         tableClass: "small", // Name of the classes issued from main.css
 		strlen: 24,
+		zoom: 1.0,
+		xoff: 0,
+		yoff: 0,
 
         // Pointless for a mirror, not currently implemented
         /* 
@@ -66,8 +69,10 @@ Module.register("timeline", {
     drawTimeline: function(data) {
 		
 		let today = moment();
-        let TimeLine = document.createElement("TABLE");
-        TimeLine.setAttribute("id", "TimeLineTable");
+        let Timeline = document.createElement("TABLE");
+		Timeline.setAttribute("id", "TimelineTable");
+		Timeline.style.zoom = this.config.zoom;
+		Timeline.style.transform = `translateX(${this.config.xoff}%) translateY(${this.config.yoff}%) rotate(90deg)`;
 
         let cell, text, day, span;
         for (let i = this.days-1; i >=0 ; i--) {
@@ -86,7 +91,7 @@ Module.register("timeline", {
             span.appendChild(text);
             row.appendChild(day);
 
-            TimeLine.appendChild(row);
+            Timeline.appendChild(row);
 
 			if (hasData){
 				let tmpstr = data[i];
@@ -99,8 +104,9 @@ Module.register("timeline", {
 				cell.setAttribute("class", "todo small bright");
 				row.appendChild(cell);
 			}
-        }
-        return TimeLine;
+		}
+		
+        return Timeline;
     },
     getDom: function() {
         return this.drawTimeline(this.timelinedata);
